@@ -1,0 +1,5 @@
+# NovaClient
+
+This is where I'll maintain a list of issues I have encountered, or anticipate to encounter.
+
+__Potential problem:__ When you create a new instance, and associated it with an existing key-pair, an error is produced when doing `ssh` complaining about the fact that the host has changed. 
