@@ -39,6 +39,7 @@ We now recreate these steps using novaclient.
 
 
 creds   = get_nova_creds()
+print creds 
 auth    = v2.Password(**creds)
 VERSION = "2"
 
