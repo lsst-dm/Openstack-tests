@@ -57,6 +57,3 @@ Fabric enables us to have access to command-line tools on the remote VM. You sim
 3. use the function `run("shell commands")` to connect and run commands on the remote VM.
 
 __Note:__ Since we are using `ssh` key pairs for authentication, `env.key_filename` is necessary for Fabric to work properly.
-
-##### Unresolved issues:
-+
