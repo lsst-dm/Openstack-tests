@@ -10,6 +10,8 @@ __Warning:__ Make sure your `ssh` key pair is already set up.
 
 __Warning:__ Make sure the floating_ip that is assigned to your new VM is now listed as a known host in ~/.ssh/known_hosts. Otherwise, it'll throw an error.
 
+__Warning:__ Make sure you have the file `StarterScript.sh` in your folder, which contains shell commands to run on the remote VM. 
+
 Once all the warnings above are met, all you should need to do is to be in the right folder and run:
 
     fab setUpMyVM
@@ -17,7 +19,7 @@ Once all the warnings above are met, all you should need to do is to be in the r
 ## Overview
 We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start an instance.
 
-We use `Fabric` to connect and run shell commands on the remot VM.
+We use `Fabric` to connect and run shell commands on the remote VM.
 
 #### Files:
 + __des_labs-openrc.sh__ This sets the environment variables that are necessary for connecting and authenticating when using `NovaClient`.
@@ -26,7 +28,7 @@ We use `Fabric` to connect and run shell commands on the remot VM.
 
 + __fabfile.py__ This is the file that `Fabric` loads when the command `fab` is called. `Fabric` is used for `ssh` connection as well as running shell commands on the remote VM.
 
-+ __StarterScript.sh__ This file contains shell commands to be run on the remote VM. 
++ __StarterScript.sh__ This file contains shell commands to be run on the remote VM.
 
 ## Using NovaClient to Connect and instantiate a VM.
 
