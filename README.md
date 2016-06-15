@@ -2,11 +2,17 @@
 
 This is where I'll maintain a list of issues I have encountered, or anticipate to encounter.
 
+### How to run it:
+
 __Warning:__ Before running this, make sure your environment is set up correctly.
 
 __Warning:__ Make sure your `ssh` key pair is already set up.
 
 __Warning:__ Make sure the floating_ip that is assigned to your new VM is now listed as a known host in ~/.ssh/known_hosts. Otherwise, it'll throw an error.
+
+Once all the warnings above are met, all you should need to do is to be in the right folder and run:
+
+    fab setUpMyVM
 
 ## Overview
 We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start an instance.
