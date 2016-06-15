@@ -26,18 +26,6 @@ For detailed documntation of all the steps, see:
 
 Written by: Sahand
 06/14/2016
-
-Using the webapp to create a new image, these are the steps:
-    1. Click Launch instance.
-    2. Give the instance a name.
-    3. Choose a flavor.
-    4. Choose boot soruce (boot from image).
-    5. Choose Ubuntu 14.10
-    6. Tab over to key pair.
-    7. create key pair if one doesn't exist.
-    8. Once launched, associate a floating_ip.
-
-We now recreate these steps using novaclient.
 ==========================================================================
 '''
 
@@ -47,9 +35,9 @@ class OSVM:
         self._InstanceName = InstanceName
         self._Credentials  = {}
         print "Setting environment variables...\n"
-        os.system("source ./des_labs-openrc.sh")
+        #os.system("source ./des_labs-openrc.sh")
 
-    def get_nova_creds(self):
+    def getNovaCreds(self):
         print "Gathering credentials."
         self._Credentials['username']  = os.environ['OS_USERNAME']
         self._Credentials['password']  = os.environ['OS_PASSWORD']
@@ -58,7 +46,7 @@ class OSVM:
 
     def setNova(self):
         print "Setting up authentication session..."
-        self.get_nova_creds()
+        self.getNovaCreds()
         auth    = v2.Password(**self._Credentials)
         VERSION = "2"
         sess    = session.Session(auth=auth)
