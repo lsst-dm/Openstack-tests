@@ -2,6 +2,12 @@
 
 This is where I'll maintain a list of issues I have encountered, or anticipate to encounter.
 
+__Warning:__ Before running this, make sure your environment is set up correctly.
+
+__Warning:__ Make sure your `ssh` key pair is already set up.
+
+__Warning:__ Make sure the floating_ip that is assigned to your new VM is now listed as a known host in ~/.ssh/known_hosts. Otherwise, it'll throw an error.
+
 ## Overview
 We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start an instance.
 
@@ -32,7 +38,7 @@ The file __OpenStackVirtualMachine.py__ implements a class with various methods 
 
 ##### Issues with non-ideal workarounds:
 + When you create a new instance, and associated it with an existing key-pair, an error is produced when doing `ssh` complaining about the fact that the host has changed. __Workaround__: Get rid of the line created in ~/.ssh/known_hosts.
-+ When trying to associate a `floating_ip` after and instance (server) has been created, an error is produced. This is because it takes some time for the instance to "spawn". __Workaround__: Add a 5 second delay in your code before making the association. This is really a hack. The best way to deal with this is to ping the VM in a loop and wait for a "ready" signal before assigining the floating_ip.
++ When trying to associate a `floating_ip` after and instance (server) has been created, an error is produced. This is because it takes some time for the instance to "spawn". __Workaround__: Add a 5 second delay in your code before making the association. This is really a hack. The best way to deal with this is to ping the VM in a loop and wait for a "ready" signal before assigning the floating_ip, similar to `waitForSSH` function in __fabfiles.py__.
 
 ## Connecting to VM using `Fabric`, after it has been instantiated.
 
@@ -47,8 +53,4 @@ Fabric enables us to have access to command-line tools on the remote VM. You sim
 __Note:__ Since we are using `ssh` key pairs for authentication, `env.key_filename` is necessary for Fabric to work properly.
 
 ##### Unresolved issues:
-+ Error produced: `fabric.exceptions.NetworkError: Low level socket error connecting to host 141.142.236.177 on port 22: Unable to connect to port 22 on 141.142.236.177 (tried 1 time)`
-
-###### Things I've tried:
-1. Tried changing the port to 5000. Did not work.
-2. Tried connecting to `localhost`. This worked fine.
++

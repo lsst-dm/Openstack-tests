@@ -5,7 +5,7 @@ import time
 import os
 
 '''
-==========================================================================
+======================================================================
 The following is the list of tasks in this file:
     1. Create a connection to acx.ncsa.illinois.edu.
     2. Create an image.
@@ -15,10 +15,8 @@ The following is the list of tasks in this file:
 + Some environment variables need to be set. This is done by sourcing the file
   des_labs-openrc.sh. This file can be obtained by logging into acx.ncsa.illinois.edu,
   Access & Security >> API Acess >> Download OpenStack RC file.
-+ The function get_nova_creds() in credentials.py is used to collect all the credentials
-  into a dictionary in order to pass it to the nova client.
-+ We use keystone client for authentication using the novaclient. For some reason,
-  we get authentication failure message without it.
++ The function get_nova_creds() in credentials.py is used to collect all the credentials into a dictionary in order to pass it to the nova client.
++ We use keystone client for authentication using the novaclient. For some reason,we get authentication failure message without it.
 + Note that you have to have an ssh keypair already.
 
 For detailed documntation of all the steps, see:
@@ -26,7 +24,7 @@ For detailed documntation of all the steps, see:
 
 Written by: Sahand
 06/14/2016
-==========================================================================
+======================================================================
 '''
 
 class OSVM:
@@ -34,7 +32,8 @@ class OSVM:
     def __init__(self,InstanceName):
         self._InstanceName = InstanceName
         self._Credentials  = {}
-        print "Setting environment variables...\n"
+        print "Setting environment variables..."
+        # For some reason this didn't work. TODO.
         #os.system("source ./des_labs-openrc.sh")
 
     def getNovaCreds(self):
@@ -76,7 +75,7 @@ class OSVM:
                                 )
 
     def assignFLoatingIP(self):
-        print "Assign floating ip to instance..."
+        print "Assigning floating ip to instance..."
         # This is to allow time for the instance to spaw before other actions
         # There has to be a better way to wait for the instance to be created.
         # TODO
