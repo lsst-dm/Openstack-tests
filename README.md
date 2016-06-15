@@ -26,6 +26,7 @@ We use `Fabric` to connect and run shell commands on the remot VM.
 
 + __fabfile.py__ This is the file that `Fabric` loads when the command `fab` is called. `Fabric` is used for `ssh` connection as well as running shell commands on the remote VM.
 
++ __StarterScript.sh__ This file contains shell commands to be run on the remote VM. 
 
 ## Using NovaClient to Connect and instantiate a VM.
 
