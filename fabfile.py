@@ -27,6 +27,8 @@ def setUpMyVM():
 
     print "Communicating with the remote VM."
     put('./StarterScript.sh')
+    put('~/.vim')
+    put('~/.vimrc')
     run('source ./StarterScript.sh')
 
 def waitForSSH():
