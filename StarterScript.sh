@@ -17,7 +17,7 @@ sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 
-sudo apt-get install oracle-java7-installer
+sudo apt-get install -y oracle-java8-installer
 
 
 echo "=============================Installing Python=============================="
@@ -58,10 +58,10 @@ sudo apt-get -y update
 sudo apt-get -y install scala
 
 # Installation of sbt
-wget http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt//0.12.3/sbt.deb
-sudo dpkg -i sbt.deb
-sudo apt-get -y update
-sudo apt-get -y install sbt
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+sudo apt-get update
+sudo apt-get install sbt
 
 
 echo "===========================Download and build spark============================"
@@ -74,7 +74,8 @@ cd spark-1.0.0
 ./sbt/sbt assembly
 
 # Clean-up
+cd
 rm scala-2.11.1.deb
 rm sbt.deb
 rm spark-1.0.0.tgz
-rm install.sh
+rm StarterScript.sh
