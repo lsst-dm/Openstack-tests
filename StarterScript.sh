@@ -1,9 +1,11 @@
+echo "============ Update and install wget and git ====================="
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y install wget
 sudo apt-get -y install git
 
 
+echo "==========================Isntalling Java================================="
 # Installation of JDK
 sudo apt-get install default-jre
 sudo apt-get install default-jdk
@@ -17,6 +19,8 @@ sudo apt-get update
 
 sudo apt-get install oracle-java7-installer
 
+
+echo "=============================Installing Python=============================="
 # Installation of Pyython 2 and 3
 sudo apt-get install -y python3 python3-setuptools
 sudo apt-get install -y python3-pip
@@ -33,6 +37,7 @@ sudo apt-get install -y python-numpy
 sudo apt-get install -y python-scipy
 
 
+echo "==============================Python Libraries==============================="
 sudo pip3 install pandas
 sudo pip3 install seaborn
 sudo pip2 install pandas
@@ -44,6 +49,8 @@ sudo pip2 install pyfits
 sudo pip2 install "ipython[notebook]"
 sudo pip3 install "ipython[notebook]"
 
+
+echo "===============================Scala installation================================="
 # Installation of scala
 wget http://www.scala-lang.org/files/archive/scala-2.11.1.deb
 sudo dpkg -i scala-2.11.1.deb
@@ -56,6 +63,8 @@ sudo dpkg -i sbt.deb
 sudo apt-get -y update
 sudo apt-get -y install sbt
 
+
+echo "===========================Download and build spark============================"
 # Downloading spark
 wget http://d3kbcqa49mib13.cloudfront.net/spark-1.0.0.tgz
 tar -zxf spark-1.0.0.tgz
