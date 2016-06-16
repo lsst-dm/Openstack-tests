@@ -1,6 +1,6 @@
 # `Openstack` and `Python NovaClient`
 
-This is where I'll maintain a list of issues I have encountered, or anticipate to encounter.
+A little guid to what I've done. This is also where I'll maintain a list of issues I have encountered, or anticipate to encounter.
 
 ### How to run it:
 
@@ -10,7 +10,7 @@ __Warning:__ Make sure your `ssh` key pair is already set up.
 
 __Warning:__ Make sure the floating_ip that is assigned to your new VM is now listed as a known host in ~/.ssh/known_hosts. Otherwise, it'll throw an error.
 
-__Warning:__ Make sure you have the file `StarterScript.sh` in your folder, which contains shell commands to run on the remote VM. 
+__Warning:__ Make sure you have the file `StarterScript.sh` in your folder, which contains shell commands to run on the remote VM.
 
 Once all the warnings above are met, all you should need to do is to be in the right folder and run:
 
