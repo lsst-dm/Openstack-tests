@@ -39,7 +39,7 @@ def waitForSSH():
     address=env.host_string
     port=22
     while True:
-        time.sleep(5)
+        time.sleep(2)
         try:
             s=socket.socket()
             s.connect((address,port))

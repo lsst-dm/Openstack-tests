@@ -65,7 +65,7 @@ class OSVM:
     def startInstance(self):
         print "\n==>>Starting the instance<<==\n"
         self._Instance = self._Nova.servers.create(
-                                name="sahand_test",
+                                name=self._InstanceName,
                                 image=self._Image.id,
                                 flavor=self._Flavor.id,
                                 key_name=self._Key.name,
