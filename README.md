@@ -16,6 +16,7 @@ Once all the warnings above are met, all you should need to do is to be in the r
 
     fab setUpMyVM
 
+You will be prompted to enter the name for the VM instance being created.
 ## Overview
 We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start an instance.
 
@@ -44,10 +45,8 @@ The file __OpenStackVirtualMachine.py__ implements a class with various methods 
 
 + For some reason, when I `source` the __des_labs-openrc.sh__ file from inside this file, the environment variables don't get set up properly.
 + Authentication will fail if you try to use `Nova` straight away. The solution is to use `keystone` for authentication step.   
-
-##### Issues with non-ideal workarounds:
-+ When you create a new instance, and associated it with an existing key-pair, an error is produced when doing `ssh` complaining about the fact that the host has changed. __Workaround__: Get rid of the line created in ~/.ssh/known_hosts.
-+ When trying to associate a `floating_ip` after and instance (server) has been created, an error is produced. This is because it takes some time for the instance to "spawn". __Workaround__: Add a 5 second delay in your code before making the association. This is really a hack. The best way to deal with this is to ping the VM in a loop and wait for a "ready" signal before assigning the floating_ip, similar to `waitForSSH` function in __fabfiles.py__.
++ When you create a new instance, and associated it with an existing key-pair, an error is produced when doing `ssh` complaining about the fact that the host has changed. `ssh-keygen -R host` gets rid of the line created in ~/.ssh/known_hosts.
++ When trying to associate a `floating_ip` after and instance (server) has been created, an error is produced. This is because it takes some time for the instance to "spawn". Add a wait period while pinging the host for rediness. In __fabfile.py__  we have `waitForSSH` take care of a similar issue..
 
 ## Connecting to VM using `Fabric`, after it has been instantiated.
 

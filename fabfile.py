@@ -6,7 +6,8 @@ import socket
 
 def startInstance():
     print "\n+++ Set Up and Instantiate the VM +++"
-    vm = OSVM("sahand_test")
+    vmname = raw_input("Enter VM name: ")
+    vm = OSVM(vmname)
     vm.setNova()
     vm.setHost()
     vm.startInstance()
@@ -25,14 +26,14 @@ def setUpMyVM():
     setFabCreds(vm)
     waitForSSH()
 
-    print "Communicating with the remote VM."
+    print "Communicating with the remote VM..."
     put('./StarterScript.sh')
     put('~/.vim')
     put('~/.vimrc')
     run('source ./StarterScript.sh')
 
 def waitForSSH():
-    print "Pinging the remote VM for readiness."
+    print "Pinging the remote VM for readiness..."
     address=env.host_string
     port=22
     while True:
@@ -43,5 +44,5 @@ def waitForSSH():
             print "Connected :). \n"
             return
         except Exception,e:
-            print "Failed to connect to %s:%s. VM not up yet." %(address,port)
+            print "Failed to connect to %s:%s. VM not up yet..." %(address,port)
             pass
