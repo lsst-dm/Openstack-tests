@@ -23,7 +23,8 @@ For detailed documntation of all the steps, see:
     http://docs.openstack.org/developer/python-novaclient/api.html
 
 Written by: Sahand
-06/14/2016
+Initial release: 06/14/2016
+Update 1: 06/17/2016
 ======================================================================
 '''
 
@@ -76,11 +77,17 @@ class OSVM:
 
     def assignFLoatingIP(self):
         print "Assigning floating ip to instance..."
-        # This is to allow time for the instance to spaw before other actions
-        # There has to be a better way to wait for the instance to be created.
-        # TODO
-        time.sleep(5)
-        self._Instance.add_floating_ip(self._Host)
+        print "Waiting for VM to start up..."
+        while True:
+            time.sleep(0.5)
+            try:
+                self._Instance.add_floating_ip(self._Host)
+                print "IP assigned! :). \n"
+                return
+            except Exception,e:
+                print "Failed to to assign IP. VM not up yet..."
+                pass
+
 
     def deleteInstance(self):
         print "Deleting the instance. Bye :)!"
