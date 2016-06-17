@@ -1,6 +1,6 @@
 # `Openstack` and `Python NovaClient`
 
-A little guid to what I've done. This is also where I'll maintain a list of issues I have encountered, or anticipate to encounter.
+A little guide to what I've done. This is also where I'll maintain a list of issues I have encountered, or anticipate to encounter.
 
 ### How to run it:
 

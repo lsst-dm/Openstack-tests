@@ -21,9 +21,11 @@ def setFabCreds(vm):
     env.host_string = (vm._Host).ip
     env.key_filename = './acx.key'
 
+
 def setUpMyVM():
     vm=startInstance()
     setFabCreds(vm)
+    local('ssh-keygen -R %s'%env.host_string)
     waitForSSH()
 
     print "Communicating with the remote VM..."

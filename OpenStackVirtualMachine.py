@@ -33,9 +33,6 @@ class OSVM:
     def __init__(self,InstanceName):
         self._InstanceName = InstanceName
         self._Credentials  = {}
-        print "Setting environment variables..."
-        # For some reason this didn't work. TODO.
-        #os.system("source ./des_labs-openrc.sh")
 
     def getNovaCreds(self):
         print "Gathering credentials."
@@ -87,7 +84,6 @@ class OSVM:
             except Exception,e:
                 print "Failed to to assign IP. VM not up yet..."
                 pass
-
 
     def deleteInstance(self):
         print "Deleting the instance. Bye :)!"
