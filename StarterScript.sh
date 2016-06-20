@@ -14,35 +14,11 @@ sudo apt-get -y install default-jre
 sudo apt-get -y install default-jdk
 
 
-echo "============================Installing Python============================"
-# Installation of Pyython 2 and 3
-# sudo apt-get -y install python-software-properties
-# sudo apt-get -y install python3 python3-setuptools
-# sudo apt-get -y install python3-pip
-# sudo apt-get -y install python3-pip
-# sudo apt-get -y install python3-matplotlib
-# sudo apt-get -y install python3-numpy
-# sudo apt-get -y install python3-scipy
-#
-# sudo apt-get -y install python python-setuptools
-# sudo apt-get -y install python-pip
-# sudo apt-get -y install python-pip
-# sudo apt-get -y install python-matplotlib
-# sudo apt-get -y install python-numpy
-# sudo apt-get -y install python-scipy
-
-
 echo "============================Python Libraries============================="
-# sudo pip3 install pandas
-# sudo pip3 install seaborn
-# sudo pip2 install pandas
-# sudo pip2 install seaborn
-#
-# sudo pip3 install pyfits
-# sudo pip2 install pyfits
-#
-# sudo pip2 install "ipython[notebook]"
-# sudo pip3 install "ipython[notebook]"
+sudo pip install pandas
+sudo pip install seaborn
+sudo pip install pyfits
+sudo pip install "ipython[notebook]"
 
 
 echo "===============================Scala installation================================="
@@ -66,17 +42,9 @@ cd
 export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin
 echo export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin >> ~/.bashrc
 
-# export SPARK_LOCAL_IP=127.0.0.1
-# echo export SPARK_LOCAL_IP=127.0.0.1 >> ~/.bashrc
-
-
-
 echo "==========================Clean up======================================="
 # Clean-up
 cd
 rm scala-2.10.6.deb
 rm spark-1.6.1-bin-hadoop2.6.tgz
 rm StarterScript.sh
-
-echo "========================Set up my shell=================================="
-sudo apt-get install zsh
