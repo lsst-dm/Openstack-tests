@@ -1,6 +1,5 @@
-# `Openstack` and `Python NovaClient`
+# LSST.git
 
-A little guide to what I've done. This is also where I'll maintain a list of issues I have encountered, or anticipate to encounter.
 
 ### How to run it:
 
@@ -17,6 +16,9 @@ Once all the warnings above are met, all you should need to do is to be in the r
     fab setUpMyVM
 
 You will be prompted to enter the name for the VM instance being created.
+
+A little guide to what I've done. This is also where I'll maintain a list of issues I have encountered, or anticipate to encounter.
+
 ## Overview
 We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start an instance.
 
@@ -59,3 +61,21 @@ Fabric enables us to have access to command-line tools on the remote VM. You sim
 3. use the function `run("shell commands")` to connect and run commands on the remote VM.
 
 __Note:__ Since we are using `ssh` key pairs for authentication, `env.key_filename` is necessary for Fabric to work properly.
+
+
+## Installing `Docker`
+
+I followed the instructions provided by [docker documentations](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+
+These are a little bit different than the ones Matias gave me.
+
+At this point, things seem to run fine.
+
+## Resolving IP conflics with illinoisnet
+
+I install bridge-utils and ran the code Matias gave me to resovle the conflict.
+
+### Issue:
+Docker hello-world doesn't run anymore, exiting with error:
+
+    docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
