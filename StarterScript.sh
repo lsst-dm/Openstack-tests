@@ -97,6 +97,11 @@ echo "=========================Create bridge==================================="
 #
 # sudo iptables -t nat -L -n
 
+echo "==========================Add username to docker groups=================================="
+
+sudo usermod -aG docker $(whoami)
+sudo service docker restart
+
 echo "==========================Clean up======================================="
 # Clean-up
 cd
