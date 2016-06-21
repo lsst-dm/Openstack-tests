@@ -1,16 +1,13 @@
 # LSST.git
 
-<!-- TOC depthFrom:2 depthTo:5 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [How to run it:](#how-to-run-it)
 - [Overview](#overview)
-	- [Files:](#files)
 - [Using NovaClient to Connect and instantiate a VM.](#using-novaclient-to-connect-and-instantiate-a-vm)
-	- [Issues encountered and resolved:](#issues-encountered-and-resolved)
 - [Connecting to VM using `Fabric`, after it has been instantiated.](#connecting-to-vm-using-fabric-after-it-has-been-instantiated)
 - [Installing `Docker`](#installing-docker)
 - [Resolving IP conflics with illinoisnet](#resolving-ip-conflics-with-illinoisnet)
-	- [Issue:](#issue)
 
 <!-- /TOC -->
 
@@ -37,7 +34,7 @@ We will be using `NovaClient` to connect to `acx.ncsa.illinois.edu`, and start a
 
 We use `Fabric` to connect and run shell commands on the remote VM.
 
-### Files:
+#### Files:
 + __des_labs-openrc.sh__ This sets the environment variables that are necessary for connecting and authenticating when using `NovaClient`.
 
 + __OpenStackVirtualMachine.py__ This file implements a class that handles all the operations needed for connecting and instantiating VMs.
@@ -56,7 +53,7 @@ Also note, you need to create your `ssh` key pair before using any of this.
 
 The file __OpenStackVirtualMachine.py__ implements a class with various methods which are essentially steps taken in the connecting and creating instances of VMs.
 
-### Issues encountered and resolved:
+#### Issues encountered and resolved:
 
 + For some reason, when I `source` the __des_labs-openrc.sh__ file from inside this file, the environment variables don't get set up properly.
 + Authentication will fail if you try to use `Nova` straight away. The solution is to use `keystone` for authentication step.   
@@ -88,7 +85,7 @@ At this point, things seem to run fine.
 
 I install bridge-utils and ran the code Matias gave me to resovle the conflict.
 
-### Issue:
+#### Issue:
 Docker hello-world doesn't run anymore, exiting with error:
 
     docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
