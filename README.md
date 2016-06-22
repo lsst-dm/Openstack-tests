@@ -75,7 +75,7 @@ __Note:__ Since we are using `ssh` key pairs for authentication, `env.key_filena
 
 ## Installing `Docker`
 
-I followed the instructions provided by [docker documentations](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+I followed the instructions provided by [docker documentations](https://docs.docker.com/engine/installation/linux/ubuntulinux/){:target="_blank"}.
 
 These are a little bit different than the ones Matias gave me.
 

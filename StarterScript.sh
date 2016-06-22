@@ -74,34 +74,23 @@ sudo service docker start
 echo "=========================Create bridge==================================="
 ##create bridge to avoid conflict with ip
 
-# sudo service docker stop
-#
-# sudo ip link set dev docker0 down
-#
-# sudo brctl delbr docker0
-#
-# sudo iptables -t nat -F POSTROUTING
-#
-#
-# sudo brctl addbr bridge0
-#
-# sudo ip addr add 192.168.5.1/24 dev bridge0
-#
-# sudo ip link set dev bridge0 up
-#
-#
-# echo 'DOCKER_OPTS="-b=bridge0"' > docker
-# sudo mv ./docker /etc/default/
-#
-# sudo service docker start
-#
-# sudo iptables -t nat -L -n
+sudo service docker stop
+sudo ip link set dev docker0 down
+sudo brctl delbr docker0
+sudo iptables -t nat -F POSTROUTING
+sudo brctl addbr bridge0
+sudo ip addr add 192.168.5.1/24 dev bridge0
+sudo ip link set dev bridge0 up
+echo 'DOCKER_OPTS="-b=bridge0"' > docker
+sudo mv ./docker /etc/default/
+sudo service docker start
+sudo iptables -t nat -L -n
 
-echo "==========================Add username to docker groups=================================="
-
-sudo usermod -aG docker $(whoami)
+echo "==========================Add username to docker group=================================="
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
 sudo service docker restart
-
+newgrp docker
 echo "==========================Clean up======================================="
 # Clean-up
 cd
