@@ -83,11 +83,6 @@ At this point, things seem to run fine.
 
 For tutorials see <a href = 'https://docs.docker.com/engine/tutorials/' target='_blank'>Docker Tutorials</a>.
 
-## Resolving IP conflics with illinoisnet
+## Resolving IP conflicts with illinoisnet
 
 I install bridge-utils and ran the code Matias gave me to resovle the conflict.
-
-#### Issue:
-Docker hello-world doesn't run anymore, exiting with error:
-
-    docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
