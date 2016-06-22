@@ -81,6 +81,8 @@ These are a little bit different than the ones Matias gave me.
 
 At this point, things seem to run fine.
 
+For tutorials see <a href = 'https://docs.docker.com/engine/tutorials/' target='_blank'>Docker Tutorials</a>.
+
 ## Resolving IP conflics with illinoisnet
 
 I install bridge-utils and ran the code Matias gave me to resovle the conflict.
