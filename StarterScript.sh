@@ -2,8 +2,12 @@
 sudo sed -i "s/127.0.0.1 localhost/127.0.0.1 localhost $HOSTNAME/g" /etc/hosts
 
 echo "============ Update and install wget and git ====================="
+
 sudo apt-get -y update
-sudo apt-get -y upgrade
+sudo rm /boot/grub/menu.lst
+sudo update-grub-legacy-ec2 -y
+sudo apt-get dist-upgrade -qq --force-yes
+sudo apt-get  upgrade
 
 sudo apt-get -y install linux-image-generic-lts-trusty
 
@@ -18,6 +22,9 @@ sudo apt-get -y install default-jdk
 
 
 echo "============================Python Libraries============================="
+sudo apt-get install -y python-pip python-dev build-essential
+sudo pip install --upgrade pip
+sudo pip install --upgrade virtualenv
 sudo pip install pandas
 sudo pip install seaborn
 sudo pip install pyfits
@@ -28,10 +35,6 @@ echo "===============================Scala installation=========================
 # Installation of scala
 wget http://www.scala-lang.org/files/archive/scala-2.10.6.deb
 sudo dpkg -i scala-2.10.6.deb
-sudo apt-get -y update
-sudo apt-get -y insall scala
-
-sudo aptget -f install
 
 echo "===========================Download Spark============================"
 # Downloading spark
@@ -44,7 +47,6 @@ sed -i 's/log4j.rootCategory=INFO/log4j.rootCategory=WARN/g' ./log4j.properties
 cd
 export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin
 echo export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin >> ~/.bashrc
-
 
 echo "============================Install Docker==============================="
 # as per documentations of docker
@@ -97,3 +99,8 @@ cd
 rm scala-2.10.6.deb
 rm spark-1.6.1-bin-hadoop2.6.tgz
 rm StarterScript.sh
+
+echo "=========================Docker Image======================"
+
+docker pull ubuntu:14.04
+docker build -t sahandha/ubuntu:14.04 .
