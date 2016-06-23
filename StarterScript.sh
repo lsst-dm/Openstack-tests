@@ -33,8 +33,8 @@ sudo pip install "ipython[notebook]"
 
 echo "===============================Scala installation================================="
 # Installation of scala
-wget http://www.scala-lang.org/files/archive/scala-2.10.6.deb
-sudo dpkg -i scala-2.10.6.deb
+wget http://www.scala-lang.org/files/archive/scala-2.11.8.deb
+sudo dpkg -i scala-2.11.8.deb
 
 echo "===========================Download Spark============================"
 # Downloading spark
@@ -69,7 +69,7 @@ sudo apt-get purge lxc-docker
 sudo apt-cache policy docker-engine
 
 sudo apt-get update
-sudo apt-get install docker-engine
+sudo apt-get install -y docker-engine
 sudo service docker start
 
 
@@ -96,7 +96,7 @@ newgrp docker
 echo "==========================Clean up======================================="
 # Clean-up
 cd
-rm scala-2.10.6.deb
+rm scala-2.11.8.deb
 rm spark-1.6.1-bin-hadoop2.6.tgz
 rm StarterScript.sh
 
