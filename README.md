@@ -54,7 +54,7 @@ Also note, you need to create your `ssh` key pair before using any of this.
 The file __OpenStackVirtualMachine.py__ implements a class with various methods which are essentially steps taken in the connecting and creating instances of VMs.
 
 #### Unresolved issues:
-+ When doing `sudo apt-get updgrade`, at some point a prompt pops up about grub boot loader having been locally modified. According to <a href=http://serverfault.com/questions/662624/how-to-avoid-grub-errors-after-runing-apt-get-upgrade-ubunut target="_blank">this blog</a>, it is a bug. That's why I have put the lines `sudo rm /boot/grub/menu.lst` and others in there. 
++ When doing `sudo apt-get updgrade`, at some point a prompt pops up about grub boot loader having been locally modified. According to <a href=http://serverfault.com/questions/662624/how-to-avoid-grub-errors-after-runing-apt-get-upgrade-ubunut target="_blank">this blog</a>, it is a bug. That's why I have put the lines `sudo rm /boot/grub/menu.lst` and others in there.
 #### Issues encountered and resolved:
 
 + For some reason, when I `source` the __des_labs-openrc.sh__ file from inside this file, the environment variables don't get set up properly.
@@ -88,3 +88,7 @@ For tutorials see <a href = 'https://docs.docker.com/engine/tutorials/' target='
 ## Resolving IP conflicts with illinoisnet
 
 I install bridge-utils and ran the code Matias gave me to resovle the conflict.
+
+## Setting up a cluster
+
+See <a href='./ClusterSetup.md' target="_blank">this file</a>.
