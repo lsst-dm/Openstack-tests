@@ -91,4 +91,16 @@ I install bridge-utils and ran the code Matias gave me to resovle the conflict.
 
 ## Setting up a cluster
 
-See <a href='./ClusterSetup.md' target="_blank">this file</a>.
+There are three types of Spark cluster that can be set up.
+
++ Stand Alone
++ Yarn
++ Mesos.
+
+See the documentation here on <a href = 'https://docs.docker.com/engine/tutorials/' target='_blank'>Cluster Mode Overview</a>.
+
+### Setting up a Stand Alone Spark cluster
+
+See <a href='./ClusterSetup.md' target="_blank">this file</a> for instructions about how to set up a standalone cluster among a nuber of VMs.
+
+Note that we eventually want to automate this process by using Docker and Kubernetes. 
