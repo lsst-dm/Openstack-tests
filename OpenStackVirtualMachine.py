@@ -35,7 +35,7 @@ class OSVM:
         self._Credentials  = {}
 
     def getNovaCreds(self):
-        print "Gathering credentials."
+        print "Gathering credentials..."
         self._Credentials['username']  = os.environ['OS_USERNAME']
         self._Credentials['password']  = os.environ['OS_PASSWORD']
         self._Credentials['auth_url']  = os.environ['OS_AUTH_URL']
@@ -43,7 +43,13 @@ class OSVM:
 
     def setNova(self):
         print "Setting up authentication session..."
-        self.getNovaCreds()
+        try:
+            self.getNovaCreds()
+            print "Credentials are set! :). \n"
+        except Exception,e:
+            print "==> error: You need to source the des_labs-openrc file in order to set up your environment.\n Please do that and run your fab command again."
+            exit()
+
         auth    = v2.Password(**self._Credentials)
         VERSION = "2"
         sess    = session.Session(auth=auth)

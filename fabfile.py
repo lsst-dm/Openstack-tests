@@ -4,9 +4,9 @@ import time
 import socket
 
 
-def startInstance():
+def startInstance(vmname):
     print "\n+++ Set Up and Instantiate the VM +++"
-    vmname = raw_input("Enter VM name: ")
+    #vmname = raw_input("Enter VM name: ")
     vm = OSVM(vmname)
     vm.setNova()
     vm.setHost()
@@ -23,7 +23,7 @@ def setFabCreds(vm):
 
 
 def setUpMyVM():
-    vm=startInstance()
+    vm=startInstance("sahand")
     setFabCreds(vm)
     local('ssh-keygen -R %s'%env.host_string)
     waitForSSH()
@@ -34,6 +34,45 @@ def setUpMyVM():
     put('~/.vim')
     put('~/.vimrc')
     run('source ./StarterScript.sh')
+
+def setUpClusterWithDocker():
+    mvm = raw_input("What is the name of the master node? ")
+    svm = raw_input("What is the name of this slave node? ")
+    setUpMasterNodeWithDocker(mvm)
+    setUpSlaveNodeWithDocker(svm)
+
+def setUpMasterNodeWithDocker(vmname):
+    print "Setting up the master node..."
+    vm=startInstance(vmname)
+    setFabCreds(vm)
+    local('ssh-keygen -R %s'%env.host_string)
+    waitForSSH()
+
+    run("ssh-keygen -f .ssh/sshkey.rsa -t rsa -N ''")
+    get('.ssh/sshkey.rsa.pub','./')
+
+    print "Communicating with the remote VM..."
+    put('~/.vim')
+    put('~/.vimrc')
+    put('./SetUpDocker.sh')
+    run('source ./SetUpDocker.sh')
+
+def setUpSlaveNodeWithDocker(vmname):
+    print "setting up a slave node..."
+    vm=startInstance(vmname)
+    setFabCreds(vm)
+    local('ssh-keygen -R %s'%env.host_string)
+    waitForSSH()
+
+    put('./sshkey.rsa.pub','.ssh/')
+    local('rm sshkey.rsa.pub')
+    run('cat .ssh/sshkey.rsa.pub >> .ssh/authorized_keys')
+
+    print "Communicating with the remote VM..."
+    put('~/.vim')
+    put('~/.vimrc')
+    put('./SetUpDocker.sh')
+    run('source ./SetUpDocker.sh')
 
 def waitForSSH():
     print "Pinging the remote VM for readiness..."

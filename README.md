@@ -8,6 +8,7 @@
 - [Connecting to VM using `Fabric`, after it has been instantiated.](#connecting-to-vm-using-fabric-after-it-has-been-instantiated)
 - [Installing `Docker`](#installing-docker)
 - [Resolving IP conflics with illinoisnet](#resolving-ip-conflics-with-illinoisnet)
+- [Setting up a cluster](#setting-up-a-cluster)
 
 <!-- /TOC -->
 
@@ -103,4 +104,4 @@ See the documentation here on <a href = 'https://docs.docker.com/engine/tutorial
 
 See <a href='./ClusterSetup.md' target="_blank">this file</a> for instructions about how to set up a standalone cluster among a nuber of VMs.
 
-Note that we eventually want to automate this process by using Docker and Kubernetes. 
+Note that we eventually want to automate this process by using Docker and Kubernetes.

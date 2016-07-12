@@ -43,10 +43,17 @@ tar -zxf spark-1.6.1-bin-hadoop2.6.tgz
 cd spark-1.6.1-bin-hadoop2.6/conf
 cp log4j.properties.template log4j.properties
 sed -i 's/log4j.rootCategory=INFO/log4j.rootCategory=WARN/g' ./log4j.properties
-
 cd
-export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin
-echo export PATH=$PATH:~/spark-1.6.1-bin-hadoop2.6/bin >> ~/.bashrc
+sudo mv spark-* /usr/local/spark
+cd
+export SPARK_HOME=/usr/local/spark
+export SPARK_LOCAL_IP="127.0.0.1"
+export PATH=$PATH:$SPARK_HOME/bin
+echo export SPARK_HOME=/usr/local/spark >> ~/.profile
+echo export SPARK_LOCAL_IP="127.0.0.1" >> ~/.profile
+echo export PATH=$PATH:$SPARK_HOME/bin >> ~/.profile
+sudo chown -R ubuntu $SPARK_HOME
+
 
 echo "============================Install Docker==============================="
 # as per documentations of docker
@@ -91,8 +98,6 @@ sudo iptables -t nat -L -n
 echo "==========================Add username to docker group=================================="
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
-sudo service docker restart
-newgrp docker
 echo "==========================Clean up======================================="
 # Clean-up
 cd
@@ -101,6 +106,6 @@ rm spark-1.6.1-bin-hadoop2.6.tgz
 rm StarterScript.sh
 
 echo "=========================Docker Image======================"
-
-docker pull ubuntu:14.04
-docker build -t sahandha/ubuntu:14.04 .
+# this is because we want to be able to update the user's grop association witout
+# having to log out or without creating a sub-shell which is what newgrp does.
+sudo sg docker -c "docker pull ubuntu:14.04 && docker build -t sahandha/ubuntu:14.04 ."
