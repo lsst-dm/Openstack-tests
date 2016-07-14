@@ -14,6 +14,10 @@ sudo apt-get -y install linux-image-generic-lts-trusty
 sudo apt-get -y install wget
 sudo apt-get -y install git
 
+echo "=============Set up SSH key pair for localhost==========================="
+ssh-keygen -f .ssh/sshkey.rsa -t rsa -N ''
+cat ~/.ssh/id_rsa.pub >> authorized_keys
+
 
 echo "==========================Isntalling Java================================"
 # Installation of JDK
@@ -108,4 +112,4 @@ rm StarterScript.sh
 echo "=========================Docker Image======================"
 # this is because we want to be able to update the user's grop association witout
 # having to log out or without creating a sub-shell which is what newgrp does.
-sudo sg docker -c "docker pull ubuntu:14.04 && docker build -t sahandha/ubuntu:14.04 ."
+sudo sg docker -c "docker pull ubuntu:14.04 && docker build -t sahandha/ubuntu:14.04 -t sahandha/ubuntu:latest ."
