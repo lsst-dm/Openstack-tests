@@ -1,4 +1,4 @@
-# LSST.git
+# Setting up a Spark Cluster using Kuberetes
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
