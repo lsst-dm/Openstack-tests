@@ -21,3 +21,13 @@
         Look at http://kubernetes.io/ for information on how to contact the
         development team for help.
   Run the command `./build/run.sh hack/build-cross.sh` to build a binary version of `kubectl`. This will also take some time.
+
+Now that you have a copy of kubernetes, you can start setting up your cluster.
+You can follow the [documentation page](http://kubernetes.io/docs/getting-started-guides/openstack-heat/), but I recommend following this document along side that, since there are some bugs as well as specific configurations that need to be addressed.
+
+## Using a pre-build image.
++ Log into [kubernetes release](https://github.com/kubernetes/kubernetes/releases) page.
++ Download the pre-build image. In this case, `kubernetes.tar.gz`.
+
+Now that you have a copy of kubernetes, you can start setting up your cluster.
+You can follow the [documentation page](http://kubernetes.io/docs/getting-started-guides/openstack-heat/), but I recommend following this document along side that, since there are some bugs as well as specific configurations that need to be addressed.
