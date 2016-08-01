@@ -37,7 +37,7 @@ Once your environment is set up, you can start creating a cluster. There are two
 
 ## Using a pre-built image.
 + Log into [kubernetes release](https://github.com/kubernetes/kubernetes/releases) page.
-+ Download the pre-build image. In this case, `kubernetes.tar.gz`.
++ Download the pre-built image. In this case, `kubernetes.tar.gz`.
 
 Now that you have a copy of kubernetes, you can start setting up your cluster.
 You can follow the [documentation page](http://kubernetes.io/docs/getting-started-guides/openstack-heat/), but I recommend following this document along side that, since there are some bugs as well as specific configurations that need to be addressed.
@@ -47,13 +47,13 @@ You can follow the [documentation page](http://kubernetes.io/docs/getting-starte
 
   1) _Files in the wrong place_
 
-  There seem to be a couple of bugs here. First of all there are two files, `kubernetes-salt.tar.gz` and `kubernetes-server-linux-amd64.tar.gz` that are in the wrong place. The scripts look for these under 'kubernetes/_output', but they are under `kubernetes/server`. So go ahead and create the folder `_ouput` and in there creatingte soft links to these two files.
+  There seem to be a couple of bugs here. First of all there are two files, `kubernetes-salt.tar.gz` and `kubernetes-server-linux-amd64.tar.gz` that are in the wrong place. The scripts look for these under `kubernetes/_output`, but they are under `kubernetes/server`. So go ahead and create the folder `_ouput` and in there create soft links to these two files.
 
   When Kubernetes first starts the cluster, it copies these two files onto the server and unpacks them.
 
 2) _modify `/etc/hosts` on the remote VM_
 
-  At some point during the cluster set up, `acx` will have to resolve, so we need to add that to the `/etc/hosts` file ont he remote VM(s). In order to accomplish this `cd` into `/Users/sahand/LSST/kubernetes/cluster/openstack-heat/kubernetes-heat/fragments` and add the line
+  At some point during the cluster set up, `acx` will have to resolve, so we need to add that to the `/etc/hosts` file on the remote VM(s). In order to accomplish this `cd` into `/Users/sahand/LSST/kubernetes/cluster/openstack-heat/kubernetes-heat/fragments` and add the line
 
         echo "141.142.236.132 acx acx.ncsa.illinois.edu" >> /etc/hosts
 
