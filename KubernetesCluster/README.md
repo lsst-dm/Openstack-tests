@@ -1,5 +1,6 @@
 # Setting up a cluster with Kubernetes
 
+
 On this page we will go through setting up a cluster on openstack using Kubernetes. [This page](http://kubernetes.io/docs/getting-started-guides/openstack-heat/) is the relevant documentation page. Plase take a look and come back to this document for important information.
 
 First thing to do is to make sure you have all the resources you need. You can follow the [documentation](http://kubernetes.io/docs/getting-started-guides/openstack-heat/) for this:
@@ -9,11 +10,11 @@ First thing to do is to make sure you have all the resources you need. You can f
   - _Install OpenStack CLI tools_: Make sure you have all these packages
   - _Configure Openstack CLI tools_: You can obtain this file by logging onto [acx/horizon](http://acx.ncsa.illinois.edu/horizon). Click on the **compute** tab and click on **Access and Security**. From there you can download the file by clicking on **Download openStack RC File**. The file will likely be called `des_labs-openrc.sh`. Once you have the file, make sure you change all the URL's appearing in it to include the full path. For example, replace:
 
-          http://acx:5000/v2.0
+        http://acx:5000/v2.0
 
     with
 
-          http://acx.ncsa.illinois.edu:5000/v2.0.
+        http://acx.ncsa.illinois.edu:5000/v2.0.
 
 + __Set Additional Configuration Values__: I put all of these into a file called `kube-env.sh` so that I can easily `source` it. The values for the fields are:
 
