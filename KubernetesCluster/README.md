@@ -11,7 +11,7 @@ First thing to do is to make sure you have all the resources you need. You can f
 
           http://acx:5000/v2.0
 
-  with
+    with
 
           http://acx.ncsa.illinois.edu:5000/v2.0.
 
@@ -27,8 +27,7 @@ First thing to do is to make sure you have all the resources you need. You can f
           export IMAGE_URL_PATH=http://cloud.centos.org/centos/7/imags
           export IMAGE_FILE=CentOS-7-x86_64-GenericCloud-1510.qcow2
           export OPENSTACK_IMAGE_NAME='CentOS7'
-          #export  IMAGE_URL_PATH=http://storage.apps.openstack.org/imaes /
-          export           SWIFT_SERVER_URL=http://acx.ncsa.illinois.edu:8080/v/A UTH_418250         e57afa473591d99187651b561e
+          export SWIFT_SERVER_URL=http://acx.ncsa.illinois.edu:8080/v/A UTH_418250e57afa473591d99187651b561e
           export ENABLE_PROXY=false
           export KUBERNETES_PROVIDER=openstack-heat
 
