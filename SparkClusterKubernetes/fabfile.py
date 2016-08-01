@@ -68,9 +68,9 @@ def setUpMasterNodeWithDocker(vmname):
     put('./scripts/SetUpDocker.sh')
     run('source ./SetUpDocker.sh')
 
-def setUpSlaveNodeWithDocker(vmname):
+def setUpSlaveNodeWithDocker():
     print "setting up a slave node..."
-    vm=startInstance(vmname)
+    vm=startInstance("shworker0")
     setFabCreds(vm)
     local('ssh-keygen -R %s'%env.host_string)
     waitForSSH()

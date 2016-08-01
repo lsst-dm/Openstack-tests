@@ -105,3 +105,7 @@ See the documentation here on <a href = 'https://docs.docker.com/engine/tutorial
 See <a href='./ClusterSetup.md' target="_blank">this file</a> for instructions about how to set up a standalone cluster among a nuber of VMs.
 
 Note that we eventually want to automate this process by using Docker and Kubernetes.
+
+
+## Kubernetes Spcripts written on the remote VM
+`/var/lib/cloud/instance/scripts/part-009`
