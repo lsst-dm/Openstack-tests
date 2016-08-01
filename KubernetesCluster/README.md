@@ -54,20 +54,22 @@ You can follow the [documentation page](http://kubernetes.io/docs/getting-starte
 2) _modify `/etc/hosts` on the remote VM_
 
   At some point during the cluster set up, `acx` will have to resolve, so we need to add that to the `/etc/hosts` file ont he remote VM(s). In order to accomplish this `cd` into `/Users/sahand/LSST/kubernetes/cluster/openstack-heat/kubernetes-heat/fragments` and add the line
-          echo "141.142.236.132 acx acx.ncsa.illinois.edu" >> /etc/hosts
+
+        echo "141.142.236.132 acx acx.ncsa.illinois.edu" >> /etc/hosts
+
   right below the line
 
-          echo "127.0.0.1 salt" >> /etc/hosts.
+        echo "127.0.0.1 salt" >> /etc/hosts.
 
 
 In order to start a cluster, `cd` into the root folder of Kubernetes and run
 
-            ./cluster/kube-up.sh
+          ./cluster/kube-up.sh
 
 
 **Note**: If for any reason you want to interrupt the process and start over, make sure you run
 
-          ./cluster/kube-down.sh
+        ./cluster/kube-down.sh
 
 Otherwise you'll see strange errors.
 
