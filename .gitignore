@@ -1,5 +1,7 @@
 *.pyc
+*.img
 acx.key
 acx.key.pub
 kubernetes/
 kubernetes_source/
+Auth/*.pem
