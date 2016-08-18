@@ -1,8 +1,10 @@
 *.pyc
-*.img
 acx.key
 acx.key.pub
 Meetings/
 kubernetes/
 kubernetes_source/
-Auth/*.pem
+*.pem
+*.csr
+*.srl
+*.img

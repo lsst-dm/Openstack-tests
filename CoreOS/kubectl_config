@@ -1,0 +1,4 @@
+kubectl config set-cluster default-cluster --server=https://141.142.236.182 --certificate-authority=/Users/sahand/LSST/coreos/Auth/ca.pem
+kubectl config set-credentials default-admin --certificate-authority=/Users/sahand/LSST/coreos/Auth/ca.pem --client-key=/Users/sahand/LSST/coreos/Auth/admin-key.pem --client-certificate=/Users/sahand/LSST/coreos/Auth/admin.pem
+kubectl config set-context default-system --cluster=default-cluster --user=default-admin
+kubectl config use-context default-system

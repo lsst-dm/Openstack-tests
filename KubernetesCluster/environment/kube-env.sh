@@ -1,4 +1,4 @@
-export STACK_NAME=kube_sh_test0
+export STACK_NAME=kube_cluster
 export NUMBER_OF_MINIONS=2
 export MAX_NUMBER_OF_MINIONS=2
 export MASTER_FLAVOR=m1.medium

@@ -1,0 +1,7 @@
+nova boot \
+--image CoreOS723 \
+--key-name acx \
+--flavor m1.medium \
+--security-group kubernetes \
+--user-data files/master.yaml \
+kube-master
